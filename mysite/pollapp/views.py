@@ -18,11 +18,14 @@ def index(request):
     return HttpResponse(template.render(context,request))
 
 def detail(request, question_id):
+
     try:
         question = Question.objects.get(pk=question_id)
+
     except Question.DoesNotExist:
         raise Http404("Question does not exist")
-    return HttpResponse("You're looking at question %s."%question.question_text)
+
+    return render(request,'polls/detail.html',{'question':question})
 
 
 def results(request,question_id):
