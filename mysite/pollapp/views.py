@@ -5,6 +5,8 @@ from django.template import loader
 from django.shortcuts import get_object_or_404
 from django.urls import reverse
 from django.views import generic
+from django.views import View
+
 # Create your views here.
 class IndexView(generic.ListView):
     template_name = 'polls/index.html'
@@ -34,3 +36,4 @@ def vote(request,question_id):
         selected_choice.votes+=1
         selected_choice.save()
         return HttpResponseRedirect(reverse('polls:results',args=(question.id,)))
+

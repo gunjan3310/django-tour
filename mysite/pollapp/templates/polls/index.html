@@ -1,3 +1,6 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'pollapp/static/style.css' %}">
+
 {% if question_list %}
     <ul>
     {% for question in question_list %}
@@ -7,3 +10,5 @@
 {% else %}
     <p>No polls are available.</p>
 {% endif %}
+
+
